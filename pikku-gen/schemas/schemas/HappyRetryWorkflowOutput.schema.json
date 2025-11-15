@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"result":{"type":"number"},"finalAttempt":{"type":"number"},"message":{"type":"string"}},"required":["result","finalAttempt","message"],"additionalProperties":false,"definitions":{}}
