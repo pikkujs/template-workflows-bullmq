@@ -1,0 +1,19 @@
+{
+  "welcomeToPikku": "welcomeToPikku",
+  "helloWorld": "helloWorld",
+  "rpcTest": "rpcTest",
+  "rpcCaller": "rpcCaller",
+  "flakyHappyRPC": "flakyHappyRPC",
+  "happyRetry": "happyRetry",
+  "createOrg": "createOrg",
+  "createOwner": "createOwner",
+  "inviteMember": "inviteMember",
+  "sendWelcomeEmail": "sendWelcomeEmail",
+  "triggerOrgOnboardingSimple": "triggerOrgOnboardingSimple",
+  "triggerSequentialInviteSimple": "triggerSequentialInviteSimple",
+  "alwaysFailsRPC": "alwaysFailsRPC",
+  "unhappyRetry": "unhappyRetry",
+  "createUserProfile": "createUserProfile",
+  "sendEmail": "sendEmail",
+  "triggerOnboardingWorkflow": "triggerOnboardingWorkflow"
+}

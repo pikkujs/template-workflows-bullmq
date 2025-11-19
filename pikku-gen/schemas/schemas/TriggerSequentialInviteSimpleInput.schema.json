@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"orgId":{"type":"string"},"memberEmails":{"type":"array","items":{"type":"string"}},"delayMs":{"type":"number"}},"required":["orgId","memberEmails","delayMs"],"additionalProperties":false,"definitions":{}}

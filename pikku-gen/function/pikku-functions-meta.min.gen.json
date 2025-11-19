@@ -1,0 +1,118 @@
+{
+  "welcomeToPikku": {
+    "pikkuFuncName": "welcomeToPikku",
+    "inputSchemaName": null,
+    "outputSchemaName": "string"
+  },
+  "helloWorld": {
+    "pikkuFuncName": "helloWorld",
+    "inputSchemaName": null,
+    "outputSchemaName": "string"
+  },
+  "rpcTest": {
+    "pikkuFuncName": "rpcTest",
+    "inputSchemaName": "RpcTestInput",
+    "outputSchemaName": null,
+    "expose": true
+  },
+  "rpcCaller": {
+    "pikkuFuncName": "rpcCaller",
+    "inputSchemaName": "RpcCallerInput",
+    "outputSchemaName": null
+  },
+  "pikkuFn_rpc_wiring_ts_L30C9": {
+    "pikkuFuncName": "pikkuFn_rpc_wiring_ts_L30C9",
+    "inputSchemaName": "PikkuFn_rpc_wiring_ts_L30C9Input",
+    "outputSchemaName": null
+  },
+  "flakyHappyRPC": {
+    "pikkuFuncName": "flakyHappyRPC",
+    "inputSchemaName": "FlakyHappyRPCInput",
+    "outputSchemaName": "FlakyHappyRPCOutput"
+  },
+  "happyRetryWorkflow": {
+    "pikkuFuncName": "happyRetryWorkflow",
+    "inputSchemaName": "HappyRetryWorkflowInput",
+    "outputSchemaName": "HappyRetryWorkflowOutput"
+  },
+  "happyRetry": {
+    "pikkuFuncName": "happyRetry",
+    "inputSchemaName": "HappyRetryInput",
+    "outputSchemaName": "HappyRetryOutput"
+  },
+  "createOrg": {
+    "pikkuFuncName": "createOrg",
+    "inputSchemaName": "CreateOrgInput",
+    "outputSchemaName": "CreateOrgOutput"
+  },
+  "createOwner": {
+    "pikkuFuncName": "createOwner",
+    "inputSchemaName": "CreateOwnerInput",
+    "outputSchemaName": "CreateOwnerOutput"
+  },
+  "inviteMember": {
+    "pikkuFuncName": "inviteMember",
+    "inputSchemaName": "InviteMemberInput",
+    "outputSchemaName": "InviteMemberOutput"
+  },
+  "sendWelcomeEmail": {
+    "pikkuFuncName": "sendWelcomeEmail",
+    "inputSchemaName": "SendWelcomeEmailInput",
+    "outputSchemaName": "SendWelcomeEmailOutput"
+  },
+  "orgOnboardingSimpleWorkflow": {
+    "pikkuFuncName": "orgOnboardingSimpleWorkflow",
+    "inputSchemaName": "OrgOnboardingSimpleWorkflowInput",
+    "outputSchemaName": "OrgOnboardingSimpleWorkflowOutput"
+  },
+  "sequentialInviteSimpleWorkflow": {
+    "pikkuFuncName": "sequentialInviteSimpleWorkflow",
+    "inputSchemaName": "SequentialInviteSimpleWorkflowInput",
+    "outputSchemaName": "SequentialInviteSimpleWorkflowOutput"
+  },
+  "triggerOrgOnboardingSimple": {
+    "pikkuFuncName": "triggerOrgOnboardingSimple",
+    "inputSchemaName": "TriggerOrgOnboardingSimpleInput",
+    "outputSchemaName": "TriggerOrgOnboardingSimpleOutput"
+  },
+  "triggerSequentialInviteSimple": {
+    "pikkuFuncName": "triggerSequentialInviteSimple",
+    "inputSchemaName": "TriggerSequentialInviteSimpleInput",
+    "outputSchemaName": "TriggerSequentialInviteSimpleOutput"
+  },
+  "alwaysFailsRPC": {
+    "pikkuFuncName": "alwaysFailsRPC",
+    "inputSchemaName": "AlwaysFailsRPCInput",
+    "outputSchemaName": "AlwaysFailsRPCOutput"
+  },
+  "unhappyRetryWorkflow": {
+    "pikkuFuncName": "unhappyRetryWorkflow",
+    "inputSchemaName": "UnhappyRetryWorkflowInput",
+    "outputSchemaName": "UnhappyRetryWorkflowOutput"
+  },
+  "unhappyRetry": {
+    "pikkuFuncName": "unhappyRetry",
+    "inputSchemaName": "UnhappyRetryInput",
+    "outputSchemaName": "UnhappyRetryOutput"
+  },
+  "createUserProfile": {
+    "pikkuFuncName": "createUserProfile",
+    "inputSchemaName": "CreateUserProfileInput",
+    "outputSchemaName": "CreateUserProfileOutput"
+  },
+  "sendEmail": {
+    "pikkuFuncName": "sendEmail",
+    "inputSchemaName": "SendEmailInput",
+    "outputSchemaName": "SendEmailOutput"
+  },
+  "onboardingWorkflow": {
+    "pikkuFuncName": "onboardingWorkflow",
+    "inputSchemaName": "OnboardingWorkflowInput",
+    "outputSchemaName": "OnboardingWorkflowOutput"
+  },
+  "triggerOnboardingWorkflow": {
+    "pikkuFuncName": "triggerOnboardingWorkflow",
+    "inputSchemaName": "TriggerOnboardingWorkflowInput",
+    "outputSchemaName": null
+  }
+}

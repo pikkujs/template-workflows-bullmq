@@ -1,0 +1,279 @@
+{
+  "happyRetryWorkflow": {
+    "pikkuFuncName": "happyRetryWorkflow",
+    "workflowName": "happyRetryWorkflow",
+    "steps": [
+      {
+        "type": "rpc",
+        "stepName": "Step that fails once then succeeds",
+        "rpcName": "flakyHappyRPC",
+        "outputVar": "result",
+        "options": {
+          "retries": 2,
+          "retryDelay": "1s"
+        }
+      },
+      {
+        "type": "return",
+        "outputs": {
+          "result": {
+            "from": "outputVar",
+            "name": "result",
+            "path": "result"
+          },
+          "finalAttempt": {
+            "from": "outputVar",
+            "name": "result",
+            "path": "attempt"
+          }
+        }
+      },
+      {
+        "type": "rpc",
+        "stepName": "Step that fails once then succeeds",
+        "rpcName": "flakyHappyRPC"
+      }
+    ],
+    "simple": true,
+    "tags": [
+      "test",
+      "retry",
+      "happy"
+    ]
+  },
+  "orgOnboardingSimpleWorkflow": {
+    "pikkuFuncName": "orgOnboardingSimpleWorkflow",
+    "workflowName": "orgOnboardingSimpleWorkflow",
+    "steps": [
+      {
+        "type": "rpc",
+        "stepName": "Create organization",
+        "rpcName": "createOrg",
+        "outputVar": "org",
+        "inputs": {
+          "name": {
+            "from": "input",
+            "path": "name"
+          }
+        }
+      },
+      {
+        "type": "branch",
+        "condition": "data.plan === 'enterprise'",
+        "branches": {
+          "then": [
+            {
+              "type": "rpc",
+              "stepName": "Create owner",
+              "rpcName": "createOwner",
+              "outputVar": "owner",
+              "inputs": {
+                "orgId": {
+                  "from": "outputVar",
+                  "name": "org",
+                  "path": "id"
+                },
+                "email": {
+                  "from": "input",
+                  "path": "email"
+                }
+              },
+              "options": {
+                "retries": 3,
+                "retryDelay": "5s"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "fanout",
+        "stepName": "Invite member ${email}",
+        "sourceVar": "data",
+        "itemVar": "email",
+        "mode": "parallel",
+        "child": {
+          "type": "rpc",
+          "stepName": "Invite member ${email}",
+          "rpcName": "inviteMember",
+          "inputs": {
+            "orgId": {
+              "from": "outputVar",
+              "name": "org",
+              "path": "id"
+            },
+            "email": {
+              "from": "input",
+              "path": "email"
+            }
+          }
+        }
+      },
+      {
+        "type": "rpc",
+        "stepName": "Send welcome email",
+        "rpcName": "sendWelcomeEmail",
+        "inputs": {
+          "to": {
+            "from": "input",
+            "path": "email"
+          },
+          "orgId": {
+            "from": "outputVar",
+            "name": "org",
+            "path": "id"
+          }
+        }
+      },
+      {
+        "type": "return",
+        "outputs": {
+          "orgId": {
+            "from": "outputVar",
+            "name": "org",
+            "path": "id"
+          },
+          "ownerId": {
+            "from": "outputVar",
+            "name": "owner",
+            "path": "id"
+          }
+        }
+      },
+      {
+        "type": "rpc",
+        "stepName": "Create organization",
+        "rpcName": "createOrg"
+      },
+      {
+        "type": "rpc",
+        "stepName": "Create owner",
+        "rpcName": "createOwner"
+      },
+      {
+        "type": "rpc",
+        "stepName": "Send welcome email",
+        "rpcName": "sendWelcomeEmail"
+      }
+    ],
+    "simple": true
+  },
+  "sequentialInviteSimpleWorkflow": {
+    "pikkuFuncName": "sequentialInviteSimpleWorkflow",
+    "workflowName": "sequentialInviteSimpleWorkflow",
+    "steps": [
+      {
+        "type": "fanout",
+        "stepName": "Invite member ${email}",
+        "sourceVar": "data",
+        "itemVar": "email",
+        "mode": "sequential",
+        "child": {
+          "type": "rpc",
+          "stepName": "Invite member ${email}",
+          "rpcName": "inviteMember",
+          "inputs": {
+            "orgId": {
+              "from": "input",
+              "path": "orgId"
+            },
+            "email": {
+              "from": "input",
+              "path": "email"
+            }
+          }
+        },
+        "timeBetween": "${data.delayMs}ms"
+      },
+      {
+        "type": "rpc",
+        "stepName": "Invite member ${email}",
+        "rpcName": "inviteMember"
+      },
+      {
+        "type": "sleep",
+        "stepName": "Wait after invitation for member ${email}",
+        "duration": "${data.delayMs}ms"
+      }
+    ],
+    "simple": true
+  },
+  "unhappyRetryWorkflow": {
+    "pikkuFuncName": "unhappyRetryWorkflow",
+    "workflowName": "unhappyRetryWorkflow",
+    "steps": [
+      {
+        "type": "branch",
+        "condition": "data.value < 0",
+        "branches": {
+          "then": []
+        }
+      },
+      {
+        "type": "rpc",
+        "stepName": "Step that always fails",
+        "rpcName": "alwaysFailsRPC",
+        "outputVar": "result",
+        "options": {
+          "retries": 2,
+          "retryDelay": "1s"
+        }
+      },
+      {
+        "type": "return",
+        "outputs": {
+          "result": {
+            "from": "outputVar",
+            "name": "result",
+            "path": "result"
+          }
+        }
+      },
+      {
+        "type": "cancel"
+      },
+      {
+        "type": "rpc",
+        "stepName": "Step that always fails",
+        "rpcName": "alwaysFailsRPC"
+      }
+    ],
+    "simple": true,
+    "tags": [
+      "test",
+      "retry",
+      "unhappy"
+    ]
+  },
+  "onboardingWorkflow": {
+    "pikkuFuncName": "onboardingWorkflow",
+    "workflowName": "onboardingWorkflow",
+    "steps": [
+      {
+        "type": "rpc",
+        "stepName": "Create user profile in database for ${data.email}",
+        "rpcName": "createUserProfile"
+      },
+      {
+        "type": "inline",
+        "stepName": "Generate personalized welcome message",
+        "description": "<dynamic>"
+      },
+      {
+        "type": "sleep",
+        "stepName": "Sleeping for 5 seconds",
+        "duration": "5s"
+      },
+      {
+        "type": "rpc",
+        "stepName": "Send welcome email to user",
+        "rpcName": "sendEmail"
+      }
+    ],
+    "simple": false,
+    "tags": [
+      "onboarding",
+      "users"
+    ]
+  }
+}

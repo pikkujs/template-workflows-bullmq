@@ -1,0 +1,10 @@
+{
+  "pikku-workflow-step-worker": {
+    "pikkuFuncName": "pikkuWorkflowWorker",
+    "queueName": "pikku-workflow-step-worker"
+  },
+  "pikku-workflow-orchestrator": {
+    "pikkuFuncName": "pikkuWorkflowOrchestrator",
+    "queueName": "pikku-workflow-orchestrator"
+  }
+}

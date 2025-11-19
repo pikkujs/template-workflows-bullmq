@@ -1,0 +1,471 @@
+{
+  "welcomeToPikku": {
+    "pikkuFuncName": "welcomeToPikku",
+    "name": "welcomeToPikku",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": "string",
+    "inputs": [],
+    "outputs": [
+      "string"
+    ],
+    "isDirectFunction": true
+  },
+  "helloWorld": {
+    "pikkuFuncName": "helloWorld",
+    "name": "helloWorld",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": "string",
+    "inputs": [],
+    "outputs": [
+      "string"
+    ],
+    "isDirectFunction": true
+  },
+  "rpcTest": {
+    "pikkuFuncName": "rpcTest",
+    "name": "rpcTest",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "usedWires": [
+      "rpc"
+    ],
+    "inputSchemaName": "RpcTestInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RpcTestInput"
+    ],
+    "outputs": [],
+    "expose": true,
+    "isDirectFunction": false
+  },
+  "rpcCaller": {
+    "pikkuFuncName": "rpcCaller",
+    "name": "rpcCaller",
+    "services": {
+      "optimized": false,
+      "services": []
+    },
+    "usedWires": [
+      "rpc"
+    ],
+    "inputSchemaName": "RpcCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RpcCallerInput"
+    ],
+    "outputs": [],
+    "isDirectFunction": false
+  },
+  "pikkuFn_rpc_wiring_ts_L30C9": {
+    "pikkuFuncName": "pikkuFn_rpc_wiring_ts_L30C9",
+    "name": "pikkuFn_rpc_wiring_ts_L30C9",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "inputSchemaName": "PikkuFn_rpc_wiring_ts_L30C9Input",
+    "outputSchemaName": null,
+    "inputs": [
+      "PikkuFn_rpc_wiring_ts_L30C9Input"
+    ],
+    "outputs": [],
+    "isDirectFunction": true
+  },
+  "flakyHappyRPC": {
+    "pikkuFuncName": "flakyHappyRPC",
+    "name": "flakyHappyRPC",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "usedWires": [
+      "workflowStep"
+    ],
+    "inputSchemaName": "FlakyHappyRPCInput",
+    "outputSchemaName": "FlakyHappyRPCOutput",
+    "inputs": [
+      "FlakyHappyRPCInput"
+    ],
+    "outputs": [
+      "FlakyHappyRPCOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "happyRetryWorkflow": {
+    "pikkuFuncName": "happyRetryWorkflow",
+    "name": "happyRetryWorkflow",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "usedWires": [
+      "workflow"
+    ],
+    "inputSchemaName": "HappyRetryWorkflowInput",
+    "outputSchemaName": "HappyRetryWorkflowOutput",
+    "inputs": [
+      "HappyRetryWorkflowInput"
+    ],
+    "outputs": [
+      "HappyRetryWorkflowOutput"
+    ],
+    "tags": [
+      "test",
+      "retry",
+      "happy"
+    ],
+    "isDirectFunction": false
+  },
+  "happyRetry": {
+    "pikkuFuncName": "happyRetry",
+    "name": "happyRetry",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowService",
+        "logger"
+      ]
+    },
+    "usedWires": [
+      "rpc"
+    ],
+    "inputSchemaName": "HappyRetryInput",
+    "outputSchemaName": "HappyRetryOutput",
+    "inputs": [
+      "HappyRetryInput"
+    ],
+    "outputs": [
+      "HappyRetryOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "createOrg": {
+    "pikkuFuncName": "createOrg",
+    "name": "createOrg",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "CreateOrgInput",
+    "outputSchemaName": "CreateOrgOutput",
+    "inputs": [
+      "CreateOrgInput"
+    ],
+    "outputs": [
+      "CreateOrgOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "createOwner": {
+    "pikkuFuncName": "createOwner",
+    "name": "createOwner",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "CreateOwnerInput",
+    "outputSchemaName": "CreateOwnerOutput",
+    "inputs": [
+      "CreateOwnerInput"
+    ],
+    "outputs": [
+      "CreateOwnerOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "inviteMember": {
+    "pikkuFuncName": "inviteMember",
+    "name": "inviteMember",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "InviteMemberInput",
+    "outputSchemaName": "InviteMemberOutput",
+    "inputs": [
+      "InviteMemberInput"
+    ],
+    "outputs": [
+      "InviteMemberOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "sendWelcomeEmail": {
+    "pikkuFuncName": "sendWelcomeEmail",
+    "name": "sendWelcomeEmail",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "SendWelcomeEmailInput",
+    "outputSchemaName": "SendWelcomeEmailOutput",
+    "inputs": [
+      "SendWelcomeEmailInput"
+    ],
+    "outputs": [
+      "SendWelcomeEmailOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "orgOnboardingSimpleWorkflow": {
+    "pikkuFuncName": "orgOnboardingSimpleWorkflow",
+    "name": "orgOnboardingSimpleWorkflow",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "usedWires": [
+      "workflow"
+    ],
+    "inputSchemaName": "OrgOnboardingSimpleWorkflowInput",
+    "outputSchemaName": "OrgOnboardingSimpleWorkflowOutput",
+    "inputs": [
+      "OrgOnboardingSimpleWorkflowInput"
+    ],
+    "outputs": [
+      "OrgOnboardingSimpleWorkflowOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "sequentialInviteSimpleWorkflow": {
+    "pikkuFuncName": "sequentialInviteSimpleWorkflow",
+    "name": "sequentialInviteSimpleWorkflow",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "usedWires": [
+      "workflow"
+    ],
+    "inputSchemaName": "SequentialInviteSimpleWorkflowInput",
+    "outputSchemaName": "SequentialInviteSimpleWorkflowOutput",
+    "inputs": [
+      "SequentialInviteSimpleWorkflowInput"
+    ],
+    "outputs": [
+      "SequentialInviteSimpleWorkflowOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "triggerOrgOnboardingSimple": {
+    "pikkuFuncName": "triggerOrgOnboardingSimple",
+    "name": "triggerOrgOnboardingSimple",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger",
+        "workflowService"
+      ]
+    },
+    "usedWires": [
+      "rpc"
+    ],
+    "inputSchemaName": "TriggerOrgOnboardingSimpleInput",
+    "outputSchemaName": "TriggerOrgOnboardingSimpleOutput",
+    "inputs": [
+      "TriggerOrgOnboardingSimpleInput"
+    ],
+    "outputs": [
+      "TriggerOrgOnboardingSimpleOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "triggerSequentialInviteSimple": {
+    "pikkuFuncName": "triggerSequentialInviteSimple",
+    "name": "triggerSequentialInviteSimple",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowService",
+        "logger"
+      ]
+    },
+    "usedWires": [
+      "rpc"
+    ],
+    "inputSchemaName": "TriggerSequentialInviteSimpleInput",
+    "outputSchemaName": "TriggerSequentialInviteSimpleOutput",
+    "inputs": [
+      "TriggerSequentialInviteSimpleInput"
+    ],
+    "outputs": [
+      "TriggerSequentialInviteSimpleOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "alwaysFailsRPC": {
+    "pikkuFuncName": "alwaysFailsRPC",
+    "name": "alwaysFailsRPC",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "usedWires": [
+      "workflowStep"
+    ],
+    "inputSchemaName": "AlwaysFailsRPCInput",
+    "outputSchemaName": "AlwaysFailsRPCOutput",
+    "inputs": [
+      "AlwaysFailsRPCInput"
+    ],
+    "outputs": [
+      "AlwaysFailsRPCOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "unhappyRetryWorkflow": {
+    "pikkuFuncName": "unhappyRetryWorkflow",
+    "name": "unhappyRetryWorkflow",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "usedWires": [
+      "workflow"
+    ],
+    "inputSchemaName": "UnhappyRetryWorkflowInput",
+    "outputSchemaName": "UnhappyRetryWorkflowOutput",
+    "inputs": [
+      "UnhappyRetryWorkflowInput"
+    ],
+    "outputs": [
+      "UnhappyRetryWorkflowOutput"
+    ],
+    "tags": [
+      "test",
+      "retry",
+      "unhappy"
+    ],
+    "isDirectFunction": false
+  },
+  "unhappyRetry": {
+    "pikkuFuncName": "unhappyRetry",
+    "name": "unhappyRetry",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowService",
+        "logger"
+      ]
+    },
+    "usedWires": [
+      "rpc"
+    ],
+    "inputSchemaName": "UnhappyRetryInput",
+    "outputSchemaName": "UnhappyRetryOutput",
+    "inputs": [
+      "UnhappyRetryInput"
+    ],
+    "outputs": [
+      "UnhappyRetryOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "createUserProfile": {
+    "pikkuFuncName": "createUserProfile",
+    "name": "createUserProfile",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "CreateUserProfileInput",
+    "outputSchemaName": "CreateUserProfileOutput",
+    "inputs": [
+      "CreateUserProfileInput"
+    ],
+    "outputs": [
+      "CreateUserProfileOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "sendEmail": {
+    "pikkuFuncName": "sendEmail",
+    "name": "sendEmail",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "SendEmailInput",
+    "outputSchemaName": "SendEmailOutput",
+    "inputs": [
+      "SendEmailInput"
+    ],
+    "outputs": [
+      "SendEmailOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "onboardingWorkflow": {
+    "pikkuFuncName": "onboardingWorkflow",
+    "name": "onboardingWorkflow",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "usedWires": [
+      "workflow"
+    ],
+    "inputSchemaName": "OnboardingWorkflowInput",
+    "outputSchemaName": "OnboardingWorkflowOutput",
+    "inputs": [
+      "OnboardingWorkflowInput"
+    ],
+    "outputs": [
+      "OnboardingWorkflowOutput"
+    ],
+    "tags": [
+      "onboarding",
+      "users"
+    ],
+    "isDirectFunction": false
+  },
+  "triggerOnboardingWorkflow": {
+    "pikkuFuncName": "triggerOnboardingWorkflow",
+    "name": "triggerOnboardingWorkflow",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowService",
+        "logger"
+      ]
+    },
+    "usedWires": [
+      "rpc"
+    ],
+    "inputSchemaName": "TriggerOnboardingWorkflowInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "TriggerOnboardingWorkflowInput"
+    ],
+    "outputs": [],
+    "isDirectFunction": true
+  }
+}
