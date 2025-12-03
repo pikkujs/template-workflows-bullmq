@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/pikkujs/pikku/refs/heads/main/packages/cli/cli.schema.json",
+  "srcDirectories": [
+    "./src"
+  ],
+  "outDir": "./pikku-gen",
+  "tsconfig": "./tsconfig.json",
+  "schema": {
+    "supportsImportAttributes": true
+  },
+  "forge": {
+    "verboseMeta": true
+  },
+  "fetchFile": "client/pikku-fetch.gen.ts",
+  "externalPackages": {
+    "ext": "@pikku/templates-function-external"
+  },
+  "workflows": {
+    "singleQueue": true,
+    "path": "src/workflows/pikku.workflows.gen.ts"
+  }
+}
