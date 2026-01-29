@@ -1,0 +1,330 @@
+{
+  "login": {
+    "pikkuFuncName": "login",
+    "name": "login",
+    "services": {
+      "optimized": true,
+      "services": [
+        "jwt"
+      ]
+    },
+    "inputSchemaName": "LoginInput",
+    "outputSchemaName": "LoginOutput",
+    "inputs": [
+      "LoginInput"
+    ],
+    "outputs": [
+      "LoginOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "getMe": {
+    "pikkuFuncName": "getMe",
+    "name": "getMe",
+    "services": {
+      "optimized": false,
+      "services": []
+    },
+    "usedWires": [
+      "initialSession"
+    ],
+    "inputSchemaName": "GetMeInput",
+    "outputSchemaName": "GetMeOutput",
+    "inputs": [
+      "GetMeInput"
+    ],
+    "outputs": [
+      "GetMeOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "logout": {
+    "pikkuFuncName": "logout",
+    "name": "logout",
+    "services": {
+      "optimized": false,
+      "services": []
+    },
+    "usedWires": [
+      "session"
+    ],
+    "inputSchemaName": "LogoutInput",
+    "outputSchemaName": "LogoutOutput",
+    "inputs": [
+      "LogoutInput"
+    ],
+    "outputs": [
+      "LogoutOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "listTodos": {
+    "pikkuFuncName": "listTodos",
+    "name": "listTodos",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "ListTodosInput",
+    "outputSchemaName": "ListTodosOutput",
+    "inputs": [
+      "ListTodosInput"
+    ],
+    "outputs": [
+      "ListTodosOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "getTodo": {
+    "pikkuFuncName": "getTodo",
+    "name": "getTodo",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "GetTodoInput",
+    "outputSchemaName": "GetTodoOutput",
+    "inputs": [
+      "GetTodoInput"
+    ],
+    "outputs": [
+      "GetTodoOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "createTodo": {
+    "pikkuFuncName": "createTodo",
+    "name": "createTodo",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger",
+        "eventHub"
+      ]
+    },
+    "inputSchemaName": "CreateTodoInput",
+    "outputSchemaName": "CreateTodoOutput",
+    "inputs": [
+      "CreateTodoInput"
+    ],
+    "outputs": [
+      "CreateTodoOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "updateTodo": {
+    "pikkuFuncName": "updateTodo",
+    "name": "updateTodo",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger",
+        "eventHub"
+      ]
+    },
+    "inputSchemaName": "UpdateTodoInput",
+    "outputSchemaName": "UpdateTodoOutput",
+    "inputs": [
+      "UpdateTodoInput"
+    ],
+    "outputs": [
+      "UpdateTodoOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "deleteTodo": {
+    "pikkuFuncName": "deleteTodo",
+    "name": "deleteTodo",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger",
+        "eventHub"
+      ]
+    },
+    "inputSchemaName": "DeleteTodoInput",
+    "outputSchemaName": "DeleteTodoOutput",
+    "inputs": [
+      "DeleteTodoInput"
+    ],
+    "outputs": [
+      "DeleteTodoOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "completeTodo": {
+    "pikkuFuncName": "completeTodo",
+    "name": "completeTodo",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger",
+        "eventHub"
+      ]
+    },
+    "inputSchemaName": "CompleteTodoInput",
+    "outputSchemaName": "CompleteTodoOutput",
+    "inputs": [
+      "CompleteTodoInput"
+    ],
+    "outputs": [
+      "CompleteTodoOutput"
+    ],
+    "isDirectFunction": false
+  },
+  "sendNotification": {
+    "pikkuFuncName": "sendNotification",
+    "name": "sendNotification",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "SendNotificationInput",
+    "outputSchemaName": "SendNotificationOutput",
+    "inputs": [
+      "SendNotificationInput"
+    ],
+    "outputs": [
+      "SendNotificationOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "scheduleReminder": {
+    "pikkuFuncName": "scheduleReminder",
+    "name": "scheduleReminder",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger",
+        "queueService"
+      ]
+    },
+    "inputSchemaName": "ScheduleReminderInput",
+    "outputSchemaName": "ScheduleReminderOutput",
+    "inputs": [
+      "ScheduleReminderInput"
+    ],
+    "outputs": [
+      "ScheduleReminderOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "createAndNotifyWorkflow": {
+    "pikkuFuncName": "createAndNotifyWorkflow",
+    "name": "createAndNotifyWorkflow",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "usedWires": [
+      "workflow"
+    ],
+    "inputSchemaName": "CreateAndNotifyWorkflowInput",
+    "outputSchemaName": "CreateAndNotifyWorkflowOutput",
+    "inputs": [
+      "CreateAndNotifyWorkflowInput"
+    ],
+    "outputs": [
+      "CreateAndNotifyWorkflowOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "fetchOverdueTodos": {
+    "pikkuFuncName": "fetchOverdueTodos",
+    "name": "fetchOverdueTodos",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "FetchOverdueTodosInput",
+    "outputSchemaName": "FetchOverdueTodosOutput",
+    "inputs": [
+      "FetchOverdueTodosInput"
+    ],
+    "outputs": [
+      "FetchOverdueTodosOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "sendOverdueSummary": {
+    "pikkuFuncName": "sendOverdueSummary",
+    "name": "sendOverdueSummary",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "inputSchemaName": "SendOverdueSummaryInput",
+    "outputSchemaName": "SendOverdueSummaryOutput",
+    "inputs": [
+      "SendOverdueSummaryInput"
+    ],
+    "outputs": [
+      "SendOverdueSummaryOutput"
+    ],
+    "isDirectFunction": true
+  },
+  "rpcCaller": {
+    "pikkuFuncName": "rpcCaller",
+    "name": "rpcCaller",
+    "services": {
+      "optimized": false,
+      "services": []
+    },
+    "usedWires": [
+      "rpc"
+    ],
+    "inputSchemaName": "RpcCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RpcCallerInput"
+    ],
+    "outputs": [],
+    "isDirectFunction": false
+  },
+  "pikkuFn_src_wirings_rpc_wiring_ts_L32C9": {
+    "pikkuFuncName": "pikkuFn_src_wirings_rpc_wiring_ts_L32C9",
+    "name": "pikkuFn_src_wirings_rpc_wiring_ts_L32C9",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "inputSchemaName": "PikkuFn_src_wirings_rpc_wiring_ts_L32C9Input",
+    "outputSchemaName": null,
+    "inputs": [
+      "PikkuFn_src_wirings_rpc_wiring_ts_L32C9Input"
+    ],
+    "outputs": [],
+    "isDirectFunction": true
+  },
+  "startCreateAndNotifyWorkflow": {
+    "pikkuFuncName": "startCreateAndNotifyWorkflow",
+    "name": "startCreateAndNotifyWorkflow",
+    "services": {
+      "optimized": false,
+      "services": []
+    },
+    "usedWires": [
+      "rpc"
+    ],
+    "inputSchemaName": "StartCreateAndNotifyWorkflowInput",
+    "outputSchemaName": "StartCreateAndNotifyWorkflowOutput",
+    "inputs": [
+      "StartCreateAndNotifyWorkflowInput"
+    ],
+    "outputs": [
+      "StartCreateAndNotifyWorkflowOutput"
+    ],
+    "expose": true,
+    "isDirectFunction": false
+  }
+}
