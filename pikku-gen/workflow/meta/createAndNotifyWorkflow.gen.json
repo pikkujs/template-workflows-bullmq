@@ -1,0 +1,155 @@
+{
+  "name": "createAndNotifyWorkflow",
+  "pikkuFuncName": "createAndNotifyWorkflow",
+  "source": "dsl",
+  "context": {
+    "notificationSent": {
+      "type": "boolean",
+      "default": false
+    },
+    "reminderScheduled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "wires": {},
+  "nodes": {
+    "step_0": {
+      "nodeId": "step_0",
+      "rpcName": "createTodo",
+      "next": "step_1",
+      "input": {
+        "userId": {
+          "$ref": "trigger",
+          "path": "userId"
+        },
+        "title": {
+          "$ref": "trigger",
+          "path": "title"
+        },
+        "priority": {
+          "$ref": "trigger",
+          "path": "priority"
+        },
+        "dueDate": {
+          "$ref": "trigger",
+          "path": "dueDate"
+        },
+        "tags": []
+      },
+      "outputVar": "createResult"
+    },
+    "step_1": {
+      "nodeId": "step_1",
+      "flow": "branch",
+      "branches": [
+        {
+          "condition": {
+            "type": "simple",
+            "expression": "data.priority === 'high'"
+          },
+          "entry": "step_1_branch0_0"
+        }
+      ],
+      "next": "step_2"
+    },
+    "step_1_branch0_0": {
+      "nodeId": "step_1_branch0_0",
+      "flow": "sleep",
+      "duration": "1s",
+      "next": "step_1_branch0_1"
+    },
+    "step_1_branch0_1": {
+      "nodeId": "step_1_branch0_1",
+      "rpcName": "sendNotification",
+      "next": "step_1_branch0_2",
+      "input": {
+        "userId": {
+          "$ref": "trigger",
+          "path": "userId"
+        },
+        "message": {
+          "$template": {
+            "parts": [
+              "High priority todo created: ",
+              ""
+            ],
+            "expressions": [
+              {
+                "$ref": "trigger",
+                "path": "title"
+              }
+            ]
+          }
+        },
+        "type": "push"
+      },
+      "outputVar": "notifResult"
+    },
+    "step_1_branch0_2": {
+      "nodeId": "step_1_branch0_2",
+      "flow": "set",
+      "variable": "notificationSent",
+      "value": "notifResult!.sent",
+      "next": "step_2"
+    },
+    "step_2": {
+      "nodeId": "step_2",
+      "flow": "branch",
+      "branches": [
+        {
+          "condition": {
+            "type": "simple",
+            "expression": "data.dueDate"
+          },
+          "entry": "step_2_branch0_0"
+        }
+      ],
+      "next": "step_3"
+    },
+    "step_2_branch0_0": {
+      "nodeId": "step_2_branch0_0",
+      "rpcName": "scheduleReminder",
+      "next": "step_2_branch0_1",
+      "input": {
+        "userId": {
+          "$ref": "trigger",
+          "path": "userId"
+        },
+        "remindAt": {
+          "$ref": "trigger",
+          "path": "dueDate"
+        }
+      },
+      "outputVar": "reminderResult"
+    },
+    "step_2_branch0_1": {
+      "nodeId": "step_2_branch0_1",
+      "flow": "set",
+      "variable": "reminderScheduled",
+      "value": "reminderResult!.scheduled",
+      "next": "step_3"
+    },
+    "step_3": {
+      "nodeId": "step_3",
+      "flow": "return",
+      "outputs": {
+        "todo": {
+          "from": "input",
+          "path": "todo"
+        },
+        "notificationSent": {
+          "from": "stateVar",
+          "name": "notificationSent"
+        },
+        "reminderScheduled": {
+          "from": "stateVar",
+          "name": "reminderScheduled"
+        }
+      }
+    }
+  },
+  "entryNodeIds": [
+    "step_0"
+  ]
+}
