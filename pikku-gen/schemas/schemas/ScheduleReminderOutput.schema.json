@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"scheduled":{"type":"boolean"},"jobId":{"type":"string"}},"required":["scheduled","jobId"],"additionalProperties":false,"definitions":{}}

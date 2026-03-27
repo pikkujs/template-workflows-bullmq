@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"sent":{"type":"boolean"},"notificationId":{"type":"string"}},"required":["sent","notificationId"],"additionalProperties":false,"definitions":{}}

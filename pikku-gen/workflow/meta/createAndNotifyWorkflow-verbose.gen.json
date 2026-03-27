@@ -1,0 +1,172 @@
+{
+  "name": "createAndNotifyWorkflow",
+  "pikkuFuncId": "createAndNotifyWorkflow",
+  "source": "dsl",
+  "context": {
+    "notificationSent": {
+      "type": "boolean",
+      "default": false
+    },
+    "reminderScheduled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "nodes": {
+    "Create todo": {
+      "nodeId": "Create todo",
+      "rpcName": "createTodo",
+      "next": "step_1",
+      "input": {
+        "userId": {
+          "$ref": "trigger",
+          "path": "userId"
+        },
+        "title": {
+          "$ref": "trigger",
+          "path": "title"
+        },
+        "priority": {
+          "$ref": "trigger",
+          "path": "priority"
+        },
+        "dueDate": {
+          "$ref": "trigger",
+          "path": "dueDate"
+        },
+        "tags": []
+      },
+      "outputVar": "createResult",
+      "stepHash": "dc99af365f14"
+    },
+    "step_1": {
+      "nodeId": "step_1",
+      "flow": "branch",
+      "branches": [
+        {
+          "condition": {
+            "type": "simple",
+            "expression": "data.priority === 'high'"
+          },
+          "entry": "Wait before notification"
+        }
+      ],
+      "next": "step_2"
+    },
+    "Wait before notification": {
+      "nodeId": "Wait before notification",
+      "flow": "sleep",
+      "duration": "1s",
+      "next": "Send high priority notification"
+    },
+    "Send high priority notification": {
+      "nodeId": "Send high priority notification",
+      "rpcName": "sendNotification",
+      "next": "step_1_branch0_2",
+      "input": {
+        "userId": {
+          "$ref": "trigger",
+          "path": "userId"
+        },
+        "message": {
+          "$template": {
+            "parts": [
+              "High priority todo created: ",
+              ""
+            ],
+            "expressions": [
+              {
+                "$ref": "trigger",
+                "path": "title"
+              }
+            ]
+          }
+        },
+        "type": "push"
+      },
+      "outputVar": "notifResult",
+      "stepHash": "18c78ba33c46"
+    },
+    "step_1_branch0_2": {
+      "nodeId": "step_1_branch0_2",
+      "flow": "set",
+      "variable": "notificationSent",
+      "value": "notifResult!.sent",
+      "next": "step_2"
+    },
+    "step_2": {
+      "nodeId": "step_2",
+      "flow": "branch",
+      "branches": [
+        {
+          "condition": {
+            "type": "simple",
+            "expression": "data.dueDate"
+          },
+          "entry": "Schedule reminder"
+        }
+      ],
+      "next": "step_3"
+    },
+    "Schedule reminder": {
+      "nodeId": "Schedule reminder",
+      "rpcName": "scheduleReminder",
+      "next": "step_2_branch0_1",
+      "input": {
+        "userId": {
+          "$ref": "trigger",
+          "path": "userId"
+        },
+        "remindAt": {
+          "$ref": "trigger",
+          "path": "dueDate"
+        }
+      },
+      "outputVar": "reminderResult",
+      "stepHash": "d1c02a3cb450"
+    },
+    "step_2_branch0_1": {
+      "nodeId": "step_2_branch0_1",
+      "flow": "set",
+      "variable": "reminderScheduled",
+      "value": "reminderResult!.scheduled",
+      "next": "step_3"
+    },
+    "step_3": {
+      "nodeId": "step_3",
+      "flow": "return",
+      "outputs": {
+        "todo": {
+          "from": "input",
+          "path": "todo"
+        },
+        "notificationSent": {
+          "from": "stateVar",
+          "name": "notificationSent"
+        },
+        "reminderScheduled": {
+          "from": "stateVar",
+          "name": "reminderScheduled"
+        }
+      }
+    }
+  },
+  "entryNodeIds": [
+    "Create todo"
+  ],
+  "graphHash": "b4269f060510",
+  "wires": {
+    "http": [
+      {
+        "route": "/workflow/create-todo",
+        "method": "post",
+        "startNode": "Create todo"
+      },
+      {
+        "route": "/workflow/run-todo",
+        "method": "post",
+        "startNode": "Create todo"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "todoReviewWorkflow",
+  "pikkuFuncId": "todoReviewWorkflow",
+  "source": "graph",
+  "description": "Review overdue todos and send summary notification",
+  "tags": [
+    "review",
+    "overdue",
+    "notification"
+  ],
+  "nodes": {
+    "fetchOverdue": {
+      "nodeId": "fetchOverdue",
+      "rpcName": "fetchOverdueTodos",
+      "input": {
+        "userId": "user1"
+      },
+      "next": "sendSummary",
+      "stepHash": "a08dc4a4941d"
+    },
+    "sendSummary": {
+      "nodeId": "sendSummary",
+      "rpcName": "sendOverdueSummary",
+      "input": {
+        "userId": {
+          "$ref": "fetchOverdue",
+          "path": "userId"
+        },
+        "overdueCount": {
+          "$ref": "fetchOverdue",
+          "path": "count"
+        },
+        "todos": {
+          "$ref": "fetchOverdue",
+          "path": "todos"
+        }
+      },
+      "stepHash": "7e1be80a90f3"
+    }
+  },
+  "entryNodeIds": [
+    "fetchOverdue"
+  ],
+  "graphHash": "6272dabfec9c",
+  "wires": {
+    "http": [
+      {
+        "route": "/workflow/review",
+        "method": "post",
+        "startNode": "fetchOverdue"
+      }
+    ]
+  }
+}
