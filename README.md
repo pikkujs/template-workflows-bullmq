@@ -1,39 +1,16 @@
-# Pikku Workflows Template (Redis)
+# This template repository is deprecated
 
-This template demonstrates Pikku workflows with Redis state storage and BullMQ queue.
+This repository is no longer updated. It used to be a copy of the `workflows-bullmq` template, synced from the [pikku monorepo](https://github.com/pikkujs/pikku) on every release.
 
-## Quick Start
+**Why:** the templates now live in the monorepo, where they are built and tested on every change, and apps are created straight from the published CLI. A second copy per template added nothing and only drifted behind.
 
-1. Install dependencies:
+**What to use instead:**
 
-   ```bash
-   yarn install
-   ```
+```bash
+npm create pikku@latest -- --template workflows-bullmq
+```
 
-2. Start the workflow workers:
+- Source of the template: [`recipes/workflows-bullmq`](https://github.com/pikkujs/pikku/tree/main/recipes) in the pikku monorepo.
+- Starting a new project: [pikkujs/starter-template](https://github.com/pikkujs/starter-template) and Pikku Studio.
 
-   ```bash
-   yarn start
-   ```
-
-3. The workflow workers will process any queued workflow jobs
-
-## Workflow Examples
-
-See `./src/workflow.functions.ts` and `./src/workflow.wiring.ts` for example workflow definitions.
-
-## Documentation
-
-For complete workflow documentation, see:
-
-- **[Workflows Guide](https://pikku.dev/docs/workflows)** - Overview and core concepts
-- **[Getting Started](https://pikku.dev/docs/workflows/getting-started)** - Setup and configuration
-- **[Step Types](https://pikku.dev/docs/workflows/steps)** - RPC, inline, sleep steps, and retry options
-- **[Configuration](https://pikku.dev/docs/workflows/configuration)** - State storage and execution modes
-
-## Features
-
-- Multi-step workflow orchestration with deterministic replay
-- Step caching and retry logic
-- Redis state storage with BullMQ queue
-- Automatic execution mode detection (remote/inline)
+The contents of this repository are frozen at the last release that synced them and may no longer match the current Pikku packages.
